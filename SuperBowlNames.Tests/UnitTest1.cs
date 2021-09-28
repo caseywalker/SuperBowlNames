@@ -62,5 +62,34 @@ namespace SuperBowlNames.Tests
       //Assert
       Assert.Equal(expectedResult, actualResult);
     }
+
+    [Theory]
+    [InlineData(1, "I")]
+    [InlineData(3, "III")]
+    [InlineData(4, "IV")]
+    [InlineData(5, "V")]
+    [InlineData(8, "VIII")]
+    [InlineData(15, "XV")]
+    [InlineData(17, "XVII")]
+    [InlineData(11, "XI")]
+    [InlineData(14, "XIV")]
+    [InlineData(19, "XIX")]
+    [InlineData(39, "XXXIX")]
+    [InlineData(29, "XXIX")]
+    [InlineData(24, "XXIV")]
+    [InlineData(45, "XLV")]
+    public void given_a_number_the_it_is_translated_to_roman_numeral(int numberToTranslate, string expectedResult)
+    {
+      //Arrange
+      var translator = new NumberTranslator();
+
+      //Act
+      var actualResult = translator.Translate(numberToTranslate);
+
+      //Assert
+      Assert.Equal(expectedResult, actualResult);
+    }
+
+
   }
 }
